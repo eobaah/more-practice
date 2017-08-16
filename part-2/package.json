@@ -1,0 +1,25 @@
+{
+  "name": "part-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha ./database_test.js",
+    "dbinit": "dropdb hotel_db; createdb hotel_db; psql hotel_db < ./schema.sql; psql hotel_db < ./load-data.sql",
+    "dropdb": "dropdb hotel_db",
+    "createdb": "createdb hotel_db",
+    "schemaUpdate": "psql hotel_db < ./schema.sql",
+    "seedData": "psql hotel_db < ./load-data.sql"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.1"
+  },
+  "dependencies": {
+    "pg-promise": "^6.4.0",
+    "postgresql": "0.0.1"
+  }
+}
