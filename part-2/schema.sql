@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS bookings(
 
 DROP VIEW availability
 CREATE VIEW availability AS
-  SELECT rooms.number, rooms.capacity, bookings.check_in, bookings.check_out,
+  SELECT rooms.number, rooms.capacity,
   CASE WHEN bookings.check_in < CURRENT_DATE AND CURRENT_DATE < bookings.check_out
   THEN FALSE
   ELSE TRUE

@@ -24,6 +24,7 @@ describe( 'checkCurrentAvailability(availability)', ()=> {
   it( 'test the database function for the command `rooms`', ()=> {
     return checkCurrentAvailability("TRUE")
     .then( rooms => {
+      console.log(rooms)
       assert(rooms[0]["number"], '2A')
       assert(rooms[1]["number"], '2A')
       assert(rooms[1]["capacity"], 2)
