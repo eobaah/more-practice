@@ -31,6 +31,9 @@ let guests = argument => {
 }
 
 let rooms = argument => {
+  if ( argument === '--available') {
+    argument = "TRUE"
+  }
   let roomLength = `Room #`.length
   let capacityLength = `Capacity`.length
   let availableLength = `Available`.length
@@ -41,59 +44,46 @@ let rooms = argument => {
     .then( rooms => {
       rooms.map( room => {
         console.log("| " +
-          (" ").repeat( idLength - room.id.toString().length) +
-          room.id +
+          room.number +
+          (" ").repeat( roomLength - room.number.toString().length) +
            " | " +
-          room.name +
-          (" ").repeat( roomNameLength - room.name.length) +
+          room.capacity +
+          (" ").repeat( capacityLength - room.capacity.toString().length) +
            " | " +
-          room.email +
-          (" ").repeat(emailLength - room.email.length) + " | ")
+          room.availability +
+          (" ").repeat(availableLength - room.availability.toString().length) + " | ")
       })
     })
     .then( ()=> console.log( `|--------+----------+-----------|` ) )
 }
 
-let ordersById = argument => {
-  let orderLength = `order id`.length
-  let costLength = `total cost`.length
-  console.log(`|----------+------------|`)
-  console.log(`| order id | total cost |`)
-  console.log(`|----------+------------|`)
-  let list = getOrdersByShopperId( argument )
-    .then( items => {
-      items.map( item => {
+let bookings = argument => {
+  let roomLength = `Room #`.length
+  let guestNameLength = ` Guest Name              `.length
+  let dateLength = `Check-In  `.length
+  console.log(`|--------+-------------------------+------------+------------|`)
+  console.log(`| Room # | Guest Name              | Check-In   | Check Out  |`)
+  console.log(`|--------+-------------------------+------------+------------|`)
+  let list = checkBookingsByRoom(argument)
+    .then( rooms => {
+      rooms.map( room => {
+        console.log(room["Check Out"])
         console.log("| " +
-          item.id +
-          (" ").repeat( orderLength - item.id.toString().length) +
+          room["Guest Name"] +
+          (" ").repeat( roomLength - room["Room #"].length) +
            " | " +
-          (" ").repeat(costLength - item.total_cost.length) +
-          item.total_cost +
+          room["Guest Name"] +
+          (" ").repeat( guestNameLength - room["Guest Name"].length) +
+           " | " +
+          room["Check-In"] +
+          (" ").repeat(dateLength - room["Check-In"].length) +
+           " | " +
+          room["Check Out"] +
+          (" ").repeat(dateLength - room["Check Out"].length) +
           " | ")
       })
     })
-    .then( ()=> console.log( `|----------+------------|` ) )
-}
-
-let realshoppers = () => {
-  let shopperNameLength = `shopper name`.length
-  let numOrdersLength = `number of orders`.length
-  console.log(`|--------------+------------------|`)
-  console.log(`| shopper name | number of orders |`)
-  console.log(`|--------------+------------------|`)
-  let list = getAllRealShoppers( )
-    .then( items => {
-      items.map( item => {
-        console.log("| " +
-          item.fname +
-          (" ").repeat( shopperNameLength - item.fname.length) +
-           " | " +
-          (" ").repeat(numOrdersLength - item.count.toString().length) +
-          item.count +
-          " | ")
-      })
-    })
-    .then( ()=> console.log( `|--------------+------------------|` ) )
+    .then( ()=> console.log( `|--------+------------------+------------+------------|` ) )
 }
 
 let func = process.argv[2]
