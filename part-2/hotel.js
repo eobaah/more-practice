@@ -57,9 +57,9 @@ let rooms = argument => {
     .then( ()=> console.log( `|--------+----------+-----------|` ) )
 }
 
-let bookings = argument => {
+let bookingsByRoom = argument => {
   let roomLength = `Room #`.length
-  let guestNameLength = ` Guest Name              `.length
+  let guestNameLength = ` Guest Name            `.length
   let dateLength = `Check-In  `.length
   console.log(`|--------+-------------------------+------------+------------|`)
   console.log(`| Room # | Guest Name              | Check-In   | Check Out  |`)
@@ -67,9 +67,8 @@ let bookings = argument => {
   let list = checkBookingsByRoom(argument)
     .then( rooms => {
       rooms.map( room => {
-        console.log(room["Check Out"])
         console.log("| " +
-          room["Guest Name"] +
+          room["Room #"] +
           (" ").repeat( roomLength - room["Room #"].length) +
            " | " +
           room["Guest Name"] +
@@ -83,18 +82,46 @@ let bookings = argument => {
           " | ")
       })
     })
-    .then( ()=> console.log( `|--------+------------------+------------+------------|` ) )
+    .then( ()=> console.log( `|--------+-------------------------+------------+------------|` ) )
+}
+
+let bookings = () => {
+  let roomLength = `Room #`.length
+  let guestNameLength = ` Guest Name            `.length
+  let dateLength = `Check-In  `.length
+  console.log(`|--------+-------------------------+------------+------------|`)
+  console.log(`| Room # | Guest Name              | Check-In   | Check Out  |`)
+  console.log(`|--------+-------------------------+------------+------------|`)
+  let list = checkUpcomingBookings()
+    .then( rooms => {
+      rooms.map( room => {
+        console.log("| " +
+          room["Room #"] +
+          (" ").repeat( roomLength - room["Room #"].length) +
+           " | " +
+          room["Guest Name"] +
+          (" ").repeat( guestNameLength - room["Guest Name"].length) +
+           " | " +
+          room["Check-In"] +
+          (" ").repeat(dateLength - room["Check-In"].length) +
+           " | " +
+          room["Check Out"] +
+          (" ").repeat(dateLength - room["Check Out"].length) +
+          " | ")
+      })
+    })
+    .then( ()=> console.log( `|--------+-------------------------+------------+------------|` ) )
 }
 
 let func = process.argv[2]
 let argument = process.argv[3]
-
+console.log( typeof argument )
 switch (func) {
   case "guests": guests()
    break;
   case "rooms": rooms(argument)
     break;
-  case "bookings": bookings(argument)
+  case "bookings": argument == undefined ? bookings(): bookingsByRoom(argument)
     break;
   default:
 

@@ -25,7 +25,10 @@ const checkCurrentAvailability = (isAvailable) => {
 
 const checkUpcomingBookings = () => {
   return db.manyOrNone(`
-    SELECT rooms.number AS "Room #", guests.name AS "Guest Name", bookings.check_in AS "Check-In", bookings.check_out AS "Check_Out" FROM bookings
+    SELECT rooms.number AS "Room #", guests.name AS "Guest Name",
+    TO_CHAR( bookings.check_in,'YYYY-MM-DD' ) AS "Check-In",
+    TO_CHAR( bookings.check_out,'YYYY-MM-DD' ) AS "Check Out"
+    FROM bookings
     JOIN guests
     ON guests.id = bookings.guest_id
     JOIN rooms
@@ -36,12 +39,15 @@ const checkUpcomingBookings = () => {
 
 const checkBookingsByRoom = (name) => {
   return db.any(`
-    SELECT rooms.number AS "Room #", guests.name AS "Guest Name", bookings.check_in AS "Check-In", bookings.check_out AS "Check_Out" FROM bookings
+    SELECT rooms.number AS "Room #", guests.name AS "Guest Name",
+    TO_CHAR( bookings.check_in,'YYYY-MM-DD' ) AS "Check-In",
+    TO_CHAR( bookings.check_out,'YYYY-MM-DD' ) AS "Check Out"
+    FROM bookings
     JOIN guests
     ON guests.id = bookings.guest_id
     JOIN rooms
     ON rooms.id = bookings.room_id
-    WHERE bookings.check_out <= CURRENT_DATE AND LOWER(rooms.number) = '${name.toLowerCase()}'
+    WHERE bookings.check_out <= CURRENT_DATE AND LOWER(rooms.number) = '${name}'
   `)
 }
 

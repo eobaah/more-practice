@@ -197,10 +197,10 @@ User Stories: Ensure that your schema design can satisfy the following scenarios
 - [x] __10__: As a hotel manager I can see which rooms have been booked by which guests, along with their check-in and check out dates
 
 Command line interface requirements
-- [ ] __10__: There is a Node script called `hotel.js` that can be called with different commands
-- [ ] __20__: Command `guests` has been implemented to the above specifications
-- [ ] __30__: Command `rooms` has been implemented to the above specifications
-- [ ] __30__: Command `bookings` has been implemented to the above specifications
+- [x] __10__: There is a Node script called `hotel.js` that can be called with different commands
+- [x] __20__: Command `guests` has been implemented to the above specifications
+- [x] __30__: Command `rooms` has been implemented to the above specifications
+- [x] __30__: Command `bookings` has been implemented to the above specifications
 
 Write tests with [Mocha](https://mochajs.org/) + [Chai](http://chaijs.com/) in `database_test.js` that assert:
 - [x] __20__: The database function for the command `guests` is tested
@@ -225,9 +225,9 @@ Clicking on the "Book" button for any room opens the "Booking" modal.
 
 ### Requirements
 
-- [ ] __10:__ All files are stored under the `part-3/` folder
-- [ ] __20:__ No third party CSS or JS libraries are used (all code must be written from scratch)
-- [ ] __10:__ HTML, CSS, and JS are separated into their own files.
+- [x] __10:__ All files are stored under the `part-3/` folder
+- [x] __20:__ No third party CSS or JS libraries are used (all code must be written from scratch)
+- [x] __10:__ HTML, CSS, and JS are separated into their own files.
 - [ ] __20:__ Clicking on the "Book" button for a room will open the "Booking" modal with the room info automatically inserted (room number and nightly rate)
 - [ ] __20:__ Users can select a check-in date (using an HTML5 date input) and a number of nights
 - [ ] __20:__ The "Total" in the "Booking" modal shows the total sum (formula: nightly rate multiplied by number of nights)

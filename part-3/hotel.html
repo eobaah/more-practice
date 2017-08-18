@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hotel</title>
+
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="modal-overlay"></div>
+    <header class="site-header">
+      <h1>Hotel</h1>
+    </header>
+
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title">Booking</h2>
+        <h2 class="modal-close-btn">X</h2>
+      </div>
+      <div class="modal-room-info">
+        <span class="modal-room-name"></span>
+        <span class="modal-room-price"></span>
+      </div>
+      <div class="modal-date-info">
+        <span class="modal-date-info-title">Check-in</span>
+        <div class="modal-date-section">
+          <input class="modal-date-selector" type="date">
+          <div class="modal-date-icon"></div>
+        </div>
+      </div>
+      <div class="modal-nights-stayed-info">
+        <span class="modal-nights-stayed-title">Nights</span>
+        <input class="modal-nights-stayed-selector" type="number" min="0" value="0">
+      </div>
+      <div class="modal-footer">
+        <div class="modal-total-section">
+          <span class="modal-total-title">Total</span>
+          <span class="modal-total-price">$0.00</span>
+        </div>
+        <button type="submit" name="button">Confirm</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <h1>Rooms</h1>
+      <table class="room-list">
+        <thead>
+          <th>Room #</th>
+          <th>Capacity</th>
+          <th>Rate / Night</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr id="room2B">
+            <td>2B</td>
+            <td>4</td>
+            <td>$59.99</td>
+            <td><button>Book</button></td>
+          </tr>
+          <tr id="room2A">
+            <td>2A</td>
+            <td>4</td>
+            <td>$59.99</td>
+            <td><button>Book</button></td>
+          </tr>
+          <tr id="room3A">
+            <td>3A</td>
+            <td>2</td>
+            <td>$45.00</td>
+            <td><button>Book</button></td>
+          </tr>
+          <tr id="room3B">
+            <td>3B</td>
+            <td>2</td>
+            <td>$45.00</td>
+            <td><button>Book</button></td>
+          </tr>
+          <tr id="room3C">
+            <td>3C</td>
+            <td>3</td>
+            <td>$52.64</td>
+            <td><button>Book</button></td>
+          </tr>
+          <tr id="room4A">
+            <td>4A</td>
+            <td>4</td>
+            <td>$59.99</td>
+            <td><button>Book</button></td>
+          </tr>
+          <tr id="room4B">
+            <td>4B</td>
+            <td>4</td>
+            <td>$59.99</td>
+            <td><button>Book</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -32,10 +32,11 @@ describe( 'checkCurrentAvailability(availability)', ()=> {
   })
 })
 
-describe( 'checkBookingsByRoom( number )', ()=> {
+describe.only( 'checkBookingsByRoom( number )', ()=> {
   it( 'test the database function for the command `bookings`', ()=> {
     return checkBookingsByRoom( '4c' )
     .then( rooms => {
+      console.log( rooms )
       assert(rooms[0]["Room #"], '4C')
       assert(rooms[0]["Guest Name"], 'Janie Powers')
     })

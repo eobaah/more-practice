@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Lucida Grande", "Helvetica", sans-serif;
+}
+
+/* HEADER */
+.site-header {
+  flex: 0;
+  padding: 4px 0px;
+  border-bottom: 2px solid #ccc;
+  background-color: #eee;
+}
+
+.site-header > *:first-child {
+  margin-left: 12px;
+}
+
+.site-header h1 {
+  font-size: 24px;
+}
+
+/* CONTENT */
+.content {
+  padding: 4px 0;
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+/* ROOM LIST */
+.room-list {
+  width: 100%;
+  font-size: 18px;
+}
+
+.room-list th {
+  text-align: left;
+}
+
+.room-list td {
+  padding: 10px 0px;
+}
+
+.room-list td button {
+  font-size: 18px;
+}
+
+/* MODAL */
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  padding: 100px 0 0 0;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.modal-container {
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(110, 107, 107, 1);
+  display: flex;
+  flex-direction: column;
+  left: 30%;
+  margin: auto;
+  padding: 20px;
+  position: absolute;
+  top: 25%;
+  visibility: hidden;
+  width: 30%;
+  z-index: 3;
+}
+
+.modal-header,
+.modal-room-info,
+.modal-date-info,
+.modal-date-section,
+.modal-nights-stayed-info,
+.modal-footer,
+.modal-total-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1% 0;
+}
+
+.modal-date-info,
+.modal-nights-stayed-info,
+.modal-footer {
+  margin: 2% 0;
+  align-items: center;
+}
+
+.modal-date-info-title,
+.modal-date-section,
+.modal-nights-stayed-title,
+.modal-nights-stayed-selector,
+.modal-nights-stayed-title,
+.modal-nights-stayed-selector
+ {
+  width: 50%;
+}
+
+
+.modal-date-section {
+  justify-content: flex-end;
+}
+.modal-date-selector {
+  width: 66%;
+  height: 100%;
+}
+
+.modal-date-icon {
+  content:url('calendar.png');
+  width: 14%;
+  height: 90%;
+  margin:0;
+  padding:0;
+}
+
+.modal-nights-stayed-selector {
+  width: 6%;
+}
+
+.modal-total-title {
+  margin: 0 10% 0 0;
+}
+
+.show-modal {
+  visibility: visible;
+}

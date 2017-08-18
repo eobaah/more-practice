@@ -32,6 +32,3 @@ CREATE VIEW availability AS
   FROM bookings
   JOIN rooms
   ON rooms.id = bookings.room_id;
-
-
-ALTER DATABASE hotel_db SET datestyle TO "ISO, YMD";
